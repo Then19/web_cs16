@@ -1,3 +1,8 @@
 update_servers_status/config.py
 update_servers_status/__pycache__
 update_servers_status/.idea
+
+api/config.py
+api/__pycache__
+api/.idea
+api/database/__pycache__
