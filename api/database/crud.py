@@ -22,3 +22,13 @@ def get_users_stats(session: Session, limit=25, skip=0) -> UserTop:
     users: list[UserStats] = valid_users.order_by(desc('skill')).offset(offset=skip).limit(limit=limit).all()
 
     return UserTop(count=count, items=users, top5_time=top5_time, top5_kills=top5_kills, top5_damage=top5_damage)
+
+
+def get_user_by_id(session: Session, user_id: int) -> UserStats:
+    """Возвращает объект пользователя по id"""
+    return session.query(OrmUserStat).filter_by(id=user_id).first()
+
+
+def get_user_by_steam_id(session: Session, steam_id: str) -> UserStats:
+    """Возвращает объект пользователя по steam_id"""
+    return session.query(OrmUserStat).filter_by(steamid=steam_id).first()
