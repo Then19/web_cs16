@@ -24,21 +24,21 @@ class UserStats(BaseModel):
     deaths: int
     hs: int
     tks: int = Field(title="Team kills")
-    shots: int
-    hits: int
+    shots: int = Field(title="Всего выстрелов")
+    hits: int = Field(title="Попаданий")
     dmg: int
     bombdef: int
     bombdefused: int
     bombplants: int
     bombexplosions: int
     h_0: int
-    h_1: int
-    h_2: int
-    h_3: int
-    h_4: int
-    h_5: int
-    h_6: int
-    h_7: int
+    h_1: int = Field(title="Выстрелов в голову")
+    h_2: int = Field(title="Выстрелов в грудь")
+    h_3: int = Field(title="Выстрелов в живот")
+    h_4: int = Field(title="Выстрелов в левую руку")
+    h_5: int = Field(title="Выстрелов в правую руку")
+    h_6: int = Field(title="Выстрелов в левую ногу")
+    h_7: int = Field(title="Выстрелов в правую ногу")
     connection_time: int
     connects: int
     roundt: int
