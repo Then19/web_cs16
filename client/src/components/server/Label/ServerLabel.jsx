@@ -5,8 +5,7 @@ import playImage from "./image/play.svg";
 import {useClipboard} from "use-clipboard-copy";
 import {showToast} from "../../../tools/toast";
 
-const ServerLabel = ({serverInfo}) => {
-
+const ServerLabel = ({serverInfo, key}) => {
     const clipboard = useClipboard()
 
     return (
@@ -18,7 +17,7 @@ const ServerLabel = ({serverInfo}) => {
             <div className={"block-servers-name"}>{serverInfo.name}</div>
             <div className={"block-servers-desc"}>{serverInfo.count_players}/{serverInfo.max_players} | {serverInfo.map}</div>
             <a className={"copy-ip"} onClick={() => {clipboard.copy(`${serverInfo.host}:${serverInfo.port}`);
-                showToast('success', 'IP скопирован')}}>
+                showToast('info', 'IP скопирован')}}>
                 <img loading={'lazy'} src={copyImage} alt=""/>
             </a>
             <a href={"steam://connect/" + `${serverInfo.host}:${serverInfo.port}`}>
