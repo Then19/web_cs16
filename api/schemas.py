@@ -56,6 +56,9 @@ class UserStats(BaseModel):
 class UserTop(BaseModel):
     count: int
     items: list[UserStats]
+
+
+class UserTopInfo(BaseModel):
     top5_kills: list[UserStats]
     top5_damage: list[UserStats]
     top5_time: list[UserStats]

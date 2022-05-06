@@ -34,7 +34,14 @@ def get_all_servers(db: Session = Depends(get_db)):
 @app.get("/users/top", response_model=schemas.UserTop, tags=['Users'])
 def get_all_users(limit: int = 25, skip: int = 0, db: Session = Depends(get_db)):
     """Возвращает инфу о пользователях"""
+    if limit > 100: limit = 100
     return crud.get_users_stats(db, limit=limit, skip=skip)
+
+
+@app.get("/users/top_info", response_model=schemas.UserTopInfo, tags=['Users'])
+def get_all_users(db: Session = Depends(get_db)):
+    """Возвращает инфу о пользователях (Топ 5 по киллам времени и тд)"""
+    return crud.get_users_top_info(db)
 
 
 @app.get("/users/user", response_model=schemas.UserStats, tags=['Users'])
