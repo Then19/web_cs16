@@ -5,7 +5,7 @@ import playImage from "./image/play.svg";
 import {useClipboard} from "use-clipboard-copy";
 import {showToast} from "../../../tools/toast";
 
-const ServerLabel = ({serverInfo, key}) => {
+const ServerLabel = ({serverInfo}) => {
     const clipboard = useClipboard()
 
     return (

@@ -10,3 +10,12 @@ export function getUsersList(limit = 25, skip = 0) {
             return {}
         })
 }
+
+export function getUsersTop() {
+    return axios.get(config.hostname + `users/top_info`)
+        .then(resp => {
+            return resp.data
+        }).catch(err => {
+            return {}
+        })
+}
