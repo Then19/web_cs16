@@ -1,0 +1,80 @@
+.header-main {
+    background: #0f141b linear-gradient(180deg,#030b12 0,rgba(16,21,26,.5) 50%,rgba(20,25,30,0) 80%);
+    white-space: nowrap;
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    transition: all .2s ease;
+    top: 0;
+    height: 50px;
+    z-index: 1199;
+    box-shadow: none;
+    animation: openModal 0.3s ease-out forwards;
+}
+
+.header-hide {
+    animation: closeModal 0.3s ease-out forwards;
+}
+
+@keyframes openModal {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0);   }
+}
+
+@keyframes closeModal {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%);}
+}
+
+
+.nav-login-btn-block{
+    height: 50px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    float: right;
+    color: white;
+
+}
+
+.nav-login-btn-block a{
+    display: flex;
+    align-items: center;
+    float: right;
+    color: #c9c8c8;
+    text-decoration: none;
+    width: 178px;
+    height: 33px;
+    background: #6080ff;
+    border-radius: 6px;
+    font-weight: 700;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: hsla(0,0%,100%,.9);
+}
+
+.nav-social {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 1%;
+    height: 100%;
+    align-items: center;
+}
+
+.social-ico {
+    width: 28px;
+    vertical-align: middle;
+    transition: .2s;
+    opacity: .5;
+    fill: white;
+    padding-right: 7px;
+}
+
+.social-ico:hover {
+    opacity: 1;
+    transition: .4s;
+}
