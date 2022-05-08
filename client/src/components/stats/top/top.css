@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 
 .list-top-block {
@@ -18,7 +20,7 @@
 .body-top {
     transition: .3s;
     border-radius: 12px;
-    height: 280px;
+    height: 272px;
     vertical-align: top;
     overflow: hidden;
     position: relative;
@@ -66,42 +68,87 @@
 }
 
 .top-label-title {
-    font-family: 'Tinos', serif;
+    font-family: 'Tapestry', cursive;
     user-select: none;
     display: flex;
     color: #efca51;
     justify-content: center;
     padding-top: 10px;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .top-users-list-block {
     color: #f3f2f2;
     font-weight: 500;
+    letter-spacing: 1px;
     font-size: 24px;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px 5px 20px;
+    padding: 5px 20px 5px 20px;
     border-top: #8880dc 1px solid;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .top-users-list-block-title {
-    font-family: 'Tinos', serif;
+    font-family: 'Tapestry', cursive;
     user-select: none;
-    color: #6060ff;
-    font-weight: 700;
+    color: #a4c1ff;
+    font-weight: 600;
     font-size: 24px;
     display: flex;
     justify-content: space-between;
     padding: 0 20px 5px 40px;
 }
 
-.top-users-list-block a {
+.top-label-block a {
     text-decoration: none;
     color: #f3f2f2;
 }
 
 .top-users-list-block:hover {
-    background-color: #2f3854;
+    transition: .2s;
+    background-color: #1c262c;
+}
+
+.top-color-0{
+    background-color: rgba(255, 215, 0, 0.6);
+}
+
+.top-color-1{
+    background-color: rgba(192, 192, 192, 0.6);
+}
+
+.top-color-2{
+    background-color: rgba(205, 127, 50, 0.6);
+}
+
+.top-color-0:hover {
+    background-color: #FFD700;
+    color: #a6a6a6;
+    transition: .2s;
+}
+
+.top-color-1:hover {
+    background-color: #c0c0c0;
+    color: #8c8c8c;
+    transition: .2s;
+}
+
+.top-color-2:hover {
+    background-color: #cd7f32;
+    color: #dadada;
+    transition: .2s;
+}
+
+.title-gold {
+    color: #FFD700;;
+}
+
+.title-silver {
+    color: #c0c0c0;;
+}
+
+.title-bronze {
+    color: #cd7f32;;
 }
