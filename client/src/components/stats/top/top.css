@@ -27,9 +27,20 @@
 }
 
 .block-border-top {
-    background: linear-gradient(60deg, #779cea, #4680fe, #234bec);
     background-size: 300% 300%;
     background-position: 0 50%;
+}
+
+.block-border-gold {
+    background: linear-gradient(60deg, #fff0be, #FFD700, #d5b209);
+}
+
+.block-border-silver {
+    background: linear-gradient(60deg, #e5e5e5, #c0c0c0, #757575);
+}
+
+.block-border-bronze {
+    background: linear-gradient(60deg, #ffbd87, #cd7f32, #de4b00);
 }
 
 .block-border-top {
@@ -142,13 +153,13 @@
 }
 
 .title-gold {
-    color: #FFD700;;
+    color: #FFD700;
 }
 
 .title-silver {
-    color: #c0c0c0;;
+    color: #c0c0c0;
 }
 
 .title-bronze {
-    color: #cd7f32;;
+    color: #cd7f32;
 }

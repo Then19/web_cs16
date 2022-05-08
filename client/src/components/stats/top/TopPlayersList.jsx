@@ -18,9 +18,9 @@ const TopPlayersList = () => {
     return (
         userData['top5_kills'] !== undefined &&
         <div className={'list-top-block'}>
-            <StatsLabel titleColor={'title-silver'} StatsData={userData.top5_damage} Title={'Top 5 damage'} obj={'dmg'} objTitle={"Damage"} key={userData.top5_damage[0].name}/>
-            <StatsLabel StatsData={userData.top5_kills} Title={'Top 5 kills'} obj={'kills'} objTitle={"Kills"} key={userData.top5_kills[0].name}/>
-            <StatsLabel titleColor={'title-bronze'} StatsData={userData.top5_time} Title={'Top 5 time'} obj={'connection_time'} objTitle={"Time"} key={userData.top5_time[0].name}/>
+            <StatsLabel titleColor={'silver'} StatsData={userData.top5_damage} Title={'Top 5 damage'} obj={'dmg'} objTitle={"Damage"} key={userData.top5_damage[0].name}/>
+            <StatsLabel titleColor={'gold'} StatsData={userData.top5_kills} Title={'Top 5 kills'} obj={'kills'} objTitle={"Kills"} key={userData.top5_kills[0].name}/>
+            <StatsLabel titleColor={'bronze'} StatsData={userData.top5_time} Title={'Top 5 time'} obj={'connection_time'} objTitle={"Time"} key={userData.top5_time[0].name}/>
         </div>
     );
 
