@@ -1,0 +1,60 @@
+.list-banner-block {
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-gap: 0.8rem!important;
+    gap: 0.8rem!important;
+    height: 100%!important;
+    overflow: visible;
+    overflow: initial;
+    align-content: flex-start!important;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 845px) {
+    .list-banner-block {
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+.body-banner {
+    transition: .3s;
+    border-radius: 12px;
+    height: 220px;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+}
+
+.block-banner-map-img {
+    height: 100%!important;
+    width: 100%!important;
+    position: relative!important;
+}
+
+
+.block-border-banner-map {
+    position: absolute!important;
+    background: #14191e;
+    top: 2px!important;
+    left: 2px!important;
+    width: calc(100% - 4px)!important;
+    height: calc(100% - 4px)!important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.block-banner-map-img img {
+    transition: .2s;
+    object-fit: cover!important;
+    height: 100%!important;
+    width: 100%!important;
+    opacity: .5;
+}
+
+.body-banner:hover .block-banner-map-img img {
+    transition: .2s;
+    opacity: 1;
+}
