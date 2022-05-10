@@ -5,7 +5,7 @@
 
 .list-top-block {
     margin: auto;
-    grid-template-columns: repeat(auto-fill,minmax(25.5rem, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     display: grid;
     grid-gap: 0.8rem!important;
     gap: 0.8rem!important;
@@ -14,6 +14,19 @@
     overflow: initial;
     align-content: flex-start!important;
     padding-bottom: 20px;
+}
+
+@media (max-width: 1150px) {
+    .list-top-block {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 750px) {
+    .list-top-block {
+        grid-template-columns: 1fr;
+    }
 }
 
 

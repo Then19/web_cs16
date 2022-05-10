@@ -1,0 +1,12 @@
+.body-board {
+    transition: .3s;
+    border-radius: 12px;
+    height: 400px;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+}
+
+.block-user-board {
+
+}

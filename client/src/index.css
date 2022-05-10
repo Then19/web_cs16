@@ -10,5 +10,5 @@ body {
 .App {
   max-width: 1600px;
   margin: 0 auto;
-  padding-top: 60px;
+  padding: 60px 5px 50px;
 }
