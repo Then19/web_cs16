@@ -13,8 +13,8 @@ const StatsLabel = ({StatsData, Title, obj, objTitle, titleColor = 'title-gold'}
                     <div>Name</div><div>{objTitle}</div>
                 </div>
                 {StatsData.map((item, index) =>
-                    <a onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} href="#">
-                        <div key={index} className={"top-users-list-block " + "top-color-" + index}>
+                    <a key={item.id} onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} href="#">
+                        <div className={"top-users-list-block " + "top-color-" + index}>
                         <div>{index + 1}. {item.name}</div><div>{item[obj]}</div>
                     </div></a>
                 )}

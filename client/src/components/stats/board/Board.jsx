@@ -1,50 +1,52 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./board.css"
+import {showToast} from "../../../tools/toast";
+import {getUsersList} from "../../../api/user";
 
 const Board = () => {
-    const example = {
-        "id": 650,
-        "steamid": "STEAM_0:1:44389722",
-        "name": "kOsmo",
-        "skill": 138.77,
-        "kills": 112,
-        "deaths": 44,
-        "hs": 44,
-        "tks": 0,
-        "shots": 1242,
-        "hits": 304,
-        "dmg": 15683,
-        "bombdef": 0,
-        "bombdefused": 0,
-        "bombplants": 0,
-        "bombexplosions": 0,
-        "h_0": 0,
-        "h_1": 63,
-        "h_2": 48,
-        "h_3": 20,
-        "h_4": 122,
-        "h_5": 40,
-        "h_6": 8,
-        "h_7": 3,
-        "connection_time": 2935,
-        "connects": 5,
-        "roundt": 73,
-        "wint": 56,
-        "roundct": 46,
-        "winct": 27,
-        "assists": 8,
-        "first_join": "2022-04-19T14:48:40",
-        "last_join": "2022-04-19T15:38:27"
-    }
+    const [usersData, setUsersData] = useState([])
+
+    useEffect(() => {
+        getUsersList(15)
+            .then(res =>{
+                setUsersData(res.items)
+            })
+    }, [])
 
 
     return (
         <div className={"body-board"}>
             <div className={"block-border-prime"}/>
             <div className={"block-background-top"}/>
-            <div className={"block-user-board"}>
-
+            <div className={"block-user-board b-s-title"}>
+                <div className={"block-user-board-name"}>Name</div>
+                <div className={"block-user-board-stats"}>
+                    <div className={'b-s-skill'}>Skill</div>
+                    <div className={'b-s-kills'}>Kills</div>
+                    <div className={'b-s-deaths'}>Deaths</div>
+                    <div className={'b-s-kd'}>K/D</div>
+                    <div className={'b-s-hs'}>Head</div>
+                    <div className={'b-s-accuracy'}>Меткость</div>
+                    <div className={'b-s-dmg'}>Урон</div>
+                    <div className={'b-s-assist'}>Assists</div>
+                </div>
             </div>
+            {usersData.map((item, index) =>
+                <a  key={item.id} onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} href="#">
+                    <div className={"block-user-board b-s-color-" + index % 2}>
+                    <div className={"block-user-board-name"}>{index + 1}. {item.name}</div>
+                    <div className={"block-user-board-stats"}>
+                        <div className={'b-s-skill'}>{item.skill}</div>
+                        <div className={'b-s-kills'}>{item.kills}</div>
+                        <div className={'b-s-deaths'}>{item.deaths}</div>
+                        <div className={'b-s-kd'}>{(item.kills / item.deaths).toFixed(2)}</div>
+                        <div className={'b-s-hs'}>{item.hs}</div>
+                        <div className={'b-s-accuracy'}>{((item.hits / item.shots) * 100).toFixed(1)}%</div>
+                        <div className={'b-s-dmg'}>{(item.dmg / 1000).toFixed(1)}k</div>
+                        <div className={'b-s-assist'}>{item.assists}</div>
+                    </div>
+                </div></a>
+            )}
         </div>
     );
 };

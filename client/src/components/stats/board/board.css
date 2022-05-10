@@ -1,12 +1,159 @@
 .body-board {
     transition: .3s;
     border-radius: 12px;
-    height: 400px;
+    height: 585px;
     vertical-align: top;
     overflow: hidden;
     position: relative;
+    padding-top: 15px;
+}
+
+.body-board a {
+    text-decoration: none;
 }
 
 .block-user-board {
+    color: #f3f2f2;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px 5px 20px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    user-select: none;
+}
 
+.b-s-title {
+    color: #6ed2fe;
+    margin-left: 22px;
+    position: relative;
+}
+
+.b-s-color-0 {
+    position: relative;
+    background: #263549;
+    margin: 0 4px;
+    transition: .2s;
+}
+
+.b-s-color-1 {
+    position: relative;
+    background: #474c5d;
+    margin: 0 4px;
+    transition: .2s;
+}
+
+.b-s-color-0:hover {
+    background: rgb(121, 121, 126);
+    transition: .2s;
+}
+
+.b-s-color-1:hover {
+    background: rgb(121, 121, 126);
+    transition: .2s;
+}
+
+.block-user-board-name {
+    z-index: 15;
+}
+
+.block-user-board-stats {
+    z-index: 15;
+    position: relative;
+}
+
+.b-s-skill {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 90px)!important;
+}
+
+.b-s-kills {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 540px)!important;
+}
+
+.b-s-deaths {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 450px)!important;
+}
+
+.b-s-kd {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 180px)!important;
+
+}
+
+.b-s-hs {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 270px)!important;
+}
+
+.b-s-accuracy {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 630px)!important;
+
+}
+
+.b-s-dmg {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 720px)!important;
+
+}
+
+.b-s-assist {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 360px)!important;
+}
+
+
+
+@media (max-width: 1080px) {
+    .b-s-dmg {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 990px) {
+    .b-s-accuracy {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 900px) {
+    .b-s-kills {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 810px) {
+    .b-s-deaths {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 720px) {
+    .b-s-assist {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 630px) {
+    .b-s-hs {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 540px) {
+    .b-s-kd {
+        visibility: hidden;
+    }
 }
