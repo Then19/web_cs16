@@ -50,3 +50,25 @@ class OrmUserStat(Base):
     first_join = Column(DateTime)
     last_join = Column(DateTime)
 
+
+class OrmWeaponsStat(Base):
+    __tablename__ = 'csstats_weapons'
+
+    id = Column(Integer, primary_key=True)
+    player_id = Column(Integer)
+    weapon = Column(String)
+    kills = Column(Integer)
+    deaths = Column(Integer)
+    hs = Column(Integer)
+    tks = Column(Integer)
+    shots = Column(Integer)
+    hits = Column(Integer)
+    dmg = Column(Integer)
+    h_0 = Column(Integer)
+    h_1 = Column(Integer)
+    h_2 = Column(Integer)
+    h_3 = Column(Integer)
+    h_4 = Column(Integer)
+    h_5 = Column(Integer)
+    h_6 = Column(Integer)
+    h_7 = Column(Integer)

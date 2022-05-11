@@ -1,7 +1,7 @@
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
-from schemas import ServerInfo, UserStats, UserTop, UserTopInfo
-from database.modeles import Server, OrmUserStat
+from schemas import ServerInfo, UserStats, UserTop, UserTopInfo, WeaponStats
+from database.modeles import Server, OrmUserStat, OrmWeaponsStat
 
 
 def get_servers_info(session: Session) -> list[ServerInfo]:
@@ -35,3 +35,8 @@ def get_user_by_id(session: Session, user_id: int) -> UserStats:
 def get_user_by_steam_id(session: Session, steam_id: str) -> UserStats:
     """Возвращает объект пользователя по steam_id"""
     return session.query(OrmUserStat).filter_by(steamid=steam_id).first()
+
+
+def get_weapons_stats(session: Session, user_id: int) -> list[WeaponStats]:
+    """Возвращает список оружия со статистикой"""
+    return session.query(OrmWeaponsStat).filter_by(player_id=user_id).all()

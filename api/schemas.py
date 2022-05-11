@@ -62,3 +62,27 @@ class UserTopInfo(BaseModel):
     top5_kills: list[UserStats]
     top5_damage: list[UserStats]
     top5_time: list[UserStats]
+
+
+class WeaponStats(BaseModel):
+    id: int
+    player_id: int
+    weapon: str
+    kills: int
+    deaths: int
+    hs: int
+    tks: int = Field(title="Team kills")
+    shots: int = Field(title="Всего выстрелов")
+    hits: int = Field(title="Попаданий")
+    dmg: int
+    h_0: int
+    h_1: int = Field(title="Выстрелов в голову")
+    h_2: int = Field(title="Выстрелов в грудь")
+    h_3: int = Field(title="Выстрелов в живот")
+    h_4: int = Field(title="Выстрелов в левую руку")
+    h_5: int = Field(title="Выстрелов в правую руку")
+    h_6: int = Field(title="Выстрелов в левую ногу")
+    h_7: int = Field(title="Выстрелов в правую ногу")
+
+    class Config:
+        orm_mode = True
