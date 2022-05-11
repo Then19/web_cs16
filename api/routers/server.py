@@ -13,7 +13,7 @@ router = APIRouter(
 )
 
 
-@router.get("/server/server_list", response_model=list[schemas.ServerInfo])
+@router.get("/server_list", response_model=list[schemas.ServerInfo])
 def get_all_servers(db: Session = Depends(get_db)):
     """Возвращает инфу о всех серверах"""
     return crud.get_servers_info(db)
