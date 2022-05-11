@@ -2,17 +2,26 @@ import React, {useEffect, useState} from 'react';
 import "./board.css"
 import {showToast} from "../../../tools/toast";
 import {getUsersList} from "../../../api/user";
+import ReactPaginate from 'react-paginate';
 
 const Board = () => {
     const [usersData, setUsersData] = useState([])
 
+    const [selectPage, setSelectPage] = useState(0)
+    const [countPage, setCountPage] = useState(0)
+
     useEffect(() => {
-        getUsersList(15)
+        getUsersList(15, 15 * selectPage)
             .then(res =>{
                 setUsersData(res.items)
+                setCountPage(Math.ceil(res.count / 15))
             })
-    }, [])
+    }, [selectPage])
 
+
+    function changeSelectPage({selected}) {
+        setSelectPage(selected)
+    }
 
     return (
         <div className={"body-board"}>
@@ -34,7 +43,7 @@ const Board = () => {
             {usersData.map((item, index) =>
                 <a  key={item.id} onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} href="#">
                     <div className={"block-user-board b-s-color-" + index % 2}>
-                    <div className={"block-user-board-name"}>{index + 1}. {item.name}</div>
+                    <div className={"block-user-board-name"}>{index + 1 + (15 * selectPage)}. {item.name}</div>
                     <div className={"block-user-board-stats"}>
                         <div className={'b-s-skill'}>{item.skill}</div>
                         <div className={'b-s-kills'}>{item.kills}</div>
@@ -47,6 +56,18 @@ const Board = () => {
                     </div>
                 </div></a>
             )}
+            <div className={'b-s-pagination-block'}>
+                <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    pageCount={countPage}
+                    onPageChange={changeSelectPage}
+                    containerClassName={'paginationButtons'}
+                    activeClassName={'b-s-active'}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                />
+            </div>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 .body-board {
     transition: .3s;
     border-radius: 12px;
-    height: 585px;
+    height: 605px;
     vertical-align: top;
     overflow: hidden;
     position: relative;
@@ -22,6 +22,7 @@
     padding: 5px 20px 5px 20px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     user-select: none;
+    height: 24px;
 }
 
 .b-s-title {
@@ -66,52 +67,52 @@
 .b-s-skill {
     position: absolute;
     top: 0;
-    left: calc(100% - 90px)!important;
+    left: calc(100% - 60px)!important;
 }
 
 .b-s-kills {
     position: absolute;
     top: 0;
-    left: calc(100% - 540px)!important;
+    left: calc(100% - 510px)!important;
 }
 
 .b-s-deaths {
     position: absolute;
     top: 0;
-    left: calc(100% - 450px)!important;
+    left: calc(100% - 420px)!important;
 }
 
 .b-s-kd {
     position: absolute;
     top: 0;
-    left: calc(100% - 180px)!important;
+    left: calc(100% - 150px)!important;
 
 }
 
 .b-s-hs {
     position: absolute;
     top: 0;
-    left: calc(100% - 270px)!important;
+    left: calc(100% - 240px)!important;
 }
 
 .b-s-accuracy {
     position: absolute;
     top: 0;
-    left: calc(100% - 630px)!important;
+    left: calc(100% - 600px)!important;
 
 }
 
 .b-s-dmg {
     position: absolute;
     top: 0;
-    left: calc(100% - 720px)!important;
+    left: calc(100% - 690px)!important;
 
 }
 
 .b-s-assist {
     position: absolute;
     top: 0;
-    left: calc(100% - 360px)!important;
+    left: calc(100% - 330px)!important;
 }
 
 
@@ -156,4 +157,48 @@
     .b-s-kd {
         visibility: hidden;
     }
+}
+
+.b-s-pagination-block {
+    position: absolute;
+    z-index: 15;
+    color: silver;
+    bottom: 1px;
+    left:50%;
+    transform:translate(-50%);
+    user-select: none;
+
+}
+
+.paginationButtons {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0;
+
+}
+
+.paginationButtons li {
+    float: left;
+    height: 26px;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+    border: #215170 1px solid;
+    padding-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.paginationButtons a {
+    float: left;
+    height: 30px;
+    width: 30px;
+}
+
+.paginationButtons li:hover {
+    background: #474c5d;
+}
+
+.b-s-active {
+    background: #184a69;
 }
