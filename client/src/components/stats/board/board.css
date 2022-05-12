@@ -202,3 +202,7 @@
 .b-s-active {
     background: #184a69;
 }
+
+.b-s-select {
+    cursor: pointer;
+}

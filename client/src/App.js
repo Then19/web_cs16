@@ -1,22 +1,25 @@
 import {ToastContainer} from "react-toastify";
-import ServerList from "./components/server/List/ServerList";
-import TopPlayersList from "./components/stats/top/TopPlayersList";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navbar from "./components/navfutor/Navbar";
-import BannerList from "./components/banner/BannerList";
-import Board from "./components/stats/board/Board";
+import Main from "./pages/Main";
+import NotFound from "./pages/NotFound";
+import User from "./pages/User";
 
 
 function App() {
 
   return (
-    <div className="App">
-        <Navbar/>
-        <ToastContainer />
-        <ServerList/>
-        <BannerList/>
-        <TopPlayersList/>
-        <Board/>
-    </div>
+      <BrowserRouter>
+          <ToastContainer/>
+          <div className={'App'}>
+              <Navbar/>
+              <Routes>
+                  <Route path="/" element={<Main/>}/>
+                  <Route exact path="/user/:user_id" element={<User/>} />
+                  <Route path="*" element={<NotFound/>} status={404}/>
+              </Routes>
+          </div>
+      </BrowserRouter>
   );
 }
 

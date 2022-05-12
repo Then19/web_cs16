@@ -5,6 +5,7 @@ import discordIco from "./image/discord.svg"
 import githubIco from "./image/github.svg"
 import telegramIco from "./image/telegram.svg"
 import vkIco from "./image/vk.svg"
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [show, setShow] = useState("")
@@ -24,7 +25,7 @@ const Navbar = () => {
     return (
         <div className={"header-main " + show}>
             <div className="nav-login-btn-block">
-                <a onClick={() => showToast('error', 'Там же написано, не надо это нажимать!!!')} href={"#"}>САЙТ В РАЗРАБОТКЕ</a>
+                <Link onClick={() => showToast('error', 'Там же написано, не надо это нажимать!!!')} to={"/"}>САЙТ В РАЗРАБОТКЕ</Link>
             </div>
             <div className={"nav-social"}>
                 <a href="https://github.com/Then19/web_cs16"><img className={"social-ico"} loading={"lazy"} src={githubIco} alt=""/></a>

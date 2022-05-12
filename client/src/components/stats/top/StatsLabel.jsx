@@ -1,6 +1,7 @@
 import React from 'react';
 import "./top.css"
 import {showToast} from "../../../tools/toast";
+import {Link} from "react-router-dom";
 
 const StatsLabel = ({StatsData, Title, obj, objTitle, titleColor = 'title-gold'}) => {
     return (
@@ -13,10 +14,10 @@ const StatsLabel = ({StatsData, Title, obj, objTitle, titleColor = 'title-gold'}
                     <div>Name</div><div>{objTitle}</div>
                 </div>
                 {StatsData.map((item, index) =>
-                    <a key={item.id} onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} href="#">
+                    <Link key={item.id} onClick={() => showToast('warn', 'Статистика пользователей пока не доступна')} to={"/user/" + item.id}>
                         <div className={"top-users-list-block " + "top-color-" + index}>
                         <div>{index + 1}. {item.name}</div><div>{item[obj]}</div>
-                    </div></a>
+                    </div></Link>
                 )}
             </div>
         </div>

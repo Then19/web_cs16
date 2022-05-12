@@ -12,3 +12,10 @@ body {
   margin: 0 auto;
   padding: 60px 5px 50px;
 }
+
+.not-found-text {
+  font-size: 42px;
+  text-align: center;
+  color: silver;
+  padding-top: 70px;
+}
