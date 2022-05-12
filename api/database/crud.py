@@ -9,12 +9,11 @@ def get_servers_info(session: Session) -> list[ServerInfo]:
     return session.query(Server).all()
 
 
-def get_users_stats(session: Session, limit=25, skip=0) -> UserTop:
+def get_users_stats(session: Session, limit=25, skip=0, sort='skill') -> UserTop:
     """Возвращает UserTop"""
     valid_users = session.query(OrmUserStat).filter(OrmUserStat.kills > 10)
     count: int = valid_users.count()
-    users: list[UserStats] = valid_users.order_by(desc('skill')).offset(offset=skip).limit(limit=limit).all()
-
+    users: list[UserStats] = valid_users.order_by(desc(sort)).offset(offset=skip).limit(limit=limit).all()
     return UserTop(count=count, items=users)
 
 

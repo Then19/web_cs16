@@ -6,6 +6,7 @@ api/config.py
 api/__pycache__
 api/.idea
 api/database/__pycache__
+api/routes/__pycache__
 api/gunicorn_conf.py
 api/venv
 api/logs

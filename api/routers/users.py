@@ -4,7 +4,6 @@ from database.database import get_db
 import schemas
 from fastapi import APIRouter, Depends, HTTPException
 
-
 router = APIRouter(
     prefix='/users',
     tags=['Users'],
@@ -13,10 +12,14 @@ router = APIRouter(
 
 
 @router.get("/top", response_model=schemas.UserTop)
-def get_all_users(limit: int = 25, skip: int = 0, db: Session = Depends(get_db)):
-    """Возвращает инфу о пользователях"""
+def get_all_users(limit: int = 25, skip: int = 0, sort='skill', db: Session = Depends(get_db)):
+    """Возвращает инфу о пользователях
+
+    sort может принимать skill, kills, dmg
+    """
     if limit > 100: limit = 100
-    return crud.get_users_stats(db, limit=limit, skip=skip)
+    sort = sort if sort in ['skill', 'kills', 'dmg'] else 'skill'
+    return crud.get_users_stats(db, limit=limit, skip=skip, sort=sort)
 
 
 @router.get("/top_info", response_model=schemas.UserTopInfo)
