@@ -10,6 +10,8 @@ const TopPlayersList = () => {
     useEffect(() => {
         getUsersTop()
             .then(res =>{
+                res.top5_damage.map(a => a.dmg = (a.dmg / 1000).toFixed(1) + 'k')
+                res.top5_time.map(a => a.connection_time = Math.floor(a.connection_time / 60 / 60) + ' ч.')
                 setUserData(res)
             })
     }, [])
