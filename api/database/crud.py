@@ -6,7 +6,7 @@ from database.modeles import Server, OrmUserStat, OrmWeaponsStat
 
 def get_servers_info(session: Session) -> list[ServerInfo]:
     """Возвращает информацию о всех серверах из бд"""
-    return session.query(Server).all()
+    return session.query(Server).filter(Server.map != None).all()
 
 
 def get_users_stats(session: Session, limit=25, skip=0, sort='skill') -> UserTop:
