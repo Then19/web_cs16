@@ -1,4 +1,4 @@
 {
   "hostname": "https://api.v-cs.ru/",
-  "hostname_ws": "ws://api.v-cs.ru/"
+  "hostname_ws": "wss://api.v-cs.ru/"
 }
