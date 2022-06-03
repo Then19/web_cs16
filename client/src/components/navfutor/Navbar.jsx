@@ -7,7 +7,7 @@ import telegramIco from "./image/telegram.svg"
 import vkIco from "./image/vk.svg"
 import {Link} from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({online=0, ...props}) => {
     const [show, setShow] = useState("")
 
     useEffect(() => {
@@ -32,6 +32,7 @@ const Navbar = () => {
                 <a href="https://t.me/then19"><img className={"social-ico"} loading={"lazy"} src={telegramIco} alt=""/></a>
                 <a href="#"><img className={"social-ico"} loading={"lazy"} src={discordIco} alt=""/></a>
                 <a href="https://vk.com/tol9h4ik"><img className={"social-ico"} loading={"lazy"} src={vkIco} alt=""/></a>
+                <div className={'nav-online'}>Online: {online}</div>
             </div>
         </div>
     );

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
 .header-main {
     background: #0f141b linear-gradient(180deg,#030b12 0,rgba(16,21,26,.5) 50%,rgba(20,25,30,0) 80%);
     white-space: nowrap;
@@ -44,7 +46,7 @@
     float: right;
     color: #c9c8c8;
     text-decoration: none;
-    width: 178px;
+    width: 150px;
     height: 33px;
     background: #6080ff;
     border-radius: 6px;
@@ -72,6 +74,13 @@
     opacity: .5;
     fill: white;
     padding-right: 7px;
+}
+
+.nav-online{
+    color: greenyellow;
+    padding-left: 10px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
 }
 
 .social-ico:hover {
