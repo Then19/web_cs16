@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import User from "./pages/User";
 import {useEffect, useState} from "react";
+import config from "./api/config.json";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
 
     useEffect(() => {
-        const ws = new WebSocket('ws://127.0.0.1:8000/server/status');
+        const ws = new WebSocket(config.hostname_ws + 'server/status');
         ws.onopen = (event) => {
 
         };

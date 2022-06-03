@@ -1,4 +1,4 @@
 {
-  "hostname": "http://127.0.0.1:8000/",
-  "domain": "127.0.0.1:8000"
+  "hostname": "https://api.v-cs.ru/",
+  "hostname_ws": "ws://api.v-cs.ru/"
 }
