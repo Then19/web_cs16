@@ -64,7 +64,7 @@ class UserTop(BaseModel):
 
 class UserTopInfo(BaseModel):
     top5_kills: list[UserStats]
-    top5_damage: list[UserStats]
+    top5_kd: list[UserStats]
     top5_time: list[UserStats]
 
 
