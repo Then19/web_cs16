@@ -14,7 +14,7 @@ function App() {
 
 
     useEffect(() => {
-        const ws = new WebSocket(config.test_hostname_ws + 'server/status');
+        const ws = new WebSocket(config.hostname_ws + 'server/status');
         ws.onopen = (event) => {
 
         };
