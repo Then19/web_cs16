@@ -15,6 +15,10 @@ class ServerInfo(BaseModel):
         orm_mode = True
 
 
+class ServerList(BaseModel):
+    data: list[ServerInfo]
+
+
 class UserStats(BaseModel):
     id: int
     steamid: str

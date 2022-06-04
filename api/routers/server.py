@@ -1,29 +1,47 @@
 from sqlalchemy.orm import Session
 from database import crud
-from database.database import get_db
+from database.database import get_db, get_session
 import schemas
 from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisconnect
+import asyncio
 
 
 class WSManager:
     def __init__(self):
         self.connections: list[WebSocket] = []
-        self.online = 0
+        self.server_status = self.get_server_online()
+        asyncio.create_task(self.update_servers_info())
+        asyncio.create_task(self.send_data_loop())
+
+    @staticmethod
+    def get_server_online():
+        with get_session() as db:
+            return schemas.ServerList(data=crud.get_servers_info(db)).dict()
+
+    async def update_servers_info(self):
+        while True:
+            await asyncio.sleep(10)
+            try:
+                self.server_status = self.get_server_online()
+            except Exception as ex:
+                print(ex)
 
     async def connect(self, websocket: WebSocket):
-        self.online += 1
         await websocket.accept()
         self.connections.append(websocket)
-        await self.send_data()
+        await websocket.send_json({"online": len(self.connections), 'servers': self.server_status})
 
     async def disconnect(self, websocket: WebSocket):
         self.connections.remove(websocket)
-        self.online -= 1
-        await self.send_data()
 
-    async def send_data(self):
-        for connection in self.connections:
-            await connection.send_json({"online": self.online})
+    async def send_data_loop(self):
+        while True:
+            await asyncio.sleep(10)
+            for connection in self.connections:
+                try:
+                    await connection.send_json({"online": len(self.connections), 'servers': self.server_status})
+                except WebSocketDisconnect:
+                    await self.disconnect(connection)
 
 
 router = APIRouter(

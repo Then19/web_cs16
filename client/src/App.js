@@ -10,16 +10,18 @@ import config from "./api/config.json";
 
 function App() {
     const [online, setOnline] = useState(0)
+    const [serverOnline, setServerOnline] = useState([])
 
 
     useEffect(() => {
-        const ws = new WebSocket(config.hostname_ws + 'server/status');
+        const ws = new WebSocket(config.test_hostname_ws + 'server/status');
         ws.onopen = (event) => {
 
         };
         ws.onmessage = function (event) {
             const json = JSON.parse(event.data);
             try {
+                setServerOnline(json.servers.data)
                 setOnline(json.online)
             } catch (err) {
                 console.log(err);
@@ -35,7 +37,7 @@ function App() {
             <div className={'App'}>
                 <Navbar online={online}/>
                 <Routes>
-                    <Route path="/" element={<Main/>}/>
+                    <Route path="/" element={<Main servers={serverOnline}/>}/>
                     <Route exact path="/user/:user_id" element={<User/>}/>
                     <Route path="*" element={<NotFound/>} status={404}/>
                 </Routes>

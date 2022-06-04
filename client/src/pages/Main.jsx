@@ -4,10 +4,10 @@ import BannerList from "../components/banner/BannerList";
 import TopPlayersList from "../components/stats/top/TopPlayersList";
 import Board from "../components/stats/board/Board";
 
-const Main = () => {
+const Main = ({servers = [], ...props}) => {
     return (
         <div>
-            <ServerList/>
+            <ServerList servers={servers}/>
             <BannerList/>
             <TopPlayersList/>
             <Board/>

@@ -1,4 +1,6 @@
 {
   "hostname": "https://api.v-cs.ru/",
-  "hostname_ws": "wss://api.v-cs.ru/"
+  "hostname_ws": "wss://api.v-cs.ru/",
+  "test_hostname": "http://127.0.0.1:8000/",
+  "test_hostname_ws": "ws://127.0.0.1:8000/"
 }
