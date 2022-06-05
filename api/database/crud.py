@@ -1,5 +1,5 @@
-from sqlalchemy import desc
-from sqlalchemy.orm import Session
+from sqlalchemy import desc, asc
+from sqlalchemy.orm import Session, Query
 from schemas import ServerInfo, UserStats, UserTop, UserTopInfo, WeaponStats
 from database.modeles import Server, OrmUserStat, OrmWeaponsStat
 
@@ -9,11 +9,20 @@ def get_servers_info(session: Session) -> list[ServerInfo]:
     return session.query(Server).filter(Server.map != None).all()
 
 
-def get_users_stats(session: Session, limit=25, skip=0, sort='skill') -> UserTop:
+def get_users_stats(session: Session, limit=25, skip=0, sort='skill', reverse=True) -> UserTop:
     """Возвращает UserTop"""
     valid_users = session.query(OrmUserStat).filter(OrmUserStat.deaths > 10)
     count: int = valid_users.count()
-    users: list[UserStats] = valid_users.order_by(desc(sort)).offset(offset=skip).limit(limit=limit).all()
+    sort_as = desc if reverse else asc
+
+    if sort == 'kd':
+        sort_as = sort_as(OrmUserStat.kills / OrmUserStat.deaths)
+    elif sort == 'acc':
+        sort_as = sort_as(OrmUserStat.hits / OrmUserStat.shots)
+    else:
+        sort_as = sort_as(sort)
+
+    users: list[UserStats] = valid_users.order_by(sort_as).offset(offset=skip).limit(limit=limit).all()
     return UserTop(count=count, items=users)
 
 

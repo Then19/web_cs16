@@ -12,14 +12,14 @@ router = APIRouter(
 
 
 @router.get("/top", response_model=schemas.UserTop)
-def get_all_users(limit: int = 25, skip: int = 0, sort='skill', db: Session = Depends(get_db)):
+def get_all_users(limit: int = 25, skip: int = 0, sort: str = 'skill', reverse: bool = True, db: Session = Depends(get_db)):
     """Возвращает инфу о пользователях
 
-    sort может принимать skill, kills, dmg
+    sort может принимать skill, kills, dmg, deaths, hs, acc, assists, kd
     """
     if limit > 100: limit = 100
-    sort = sort if sort in ['skill', 'kills', 'dmg'] else 'skill'
-    return crud.get_users_stats(db, limit=limit, skip=skip, sort=sort)
+    sort = sort if sort in ['skill', 'kills', 'dmg', 'deaths', 'hs', 'acc', 'assists', 'kd'] else 'skill'
+    return crud.get_users_stats(db, limit=limit, skip=skip, sort=sort, reverse=reverse)
 
 
 @router.get("/top_info", response_model=schemas.UserTopInfo)
