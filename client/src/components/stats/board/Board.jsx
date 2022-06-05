@@ -34,12 +34,12 @@ const Board = () => {
                 <div className={"block-user-board-stats"}>
                     <div onClick={() => setSortSelect('skill')} className={'b-s-skill b-s-select'}>Skill</div>
                     <div onClick={() => setSortSelect('kills')} className={'b-s-kills b-s-select'}>Kills</div>
-                    <div className={'b-s-deaths'}>Deaths</div>
-                    <div className={'b-s-kd'}>K/D</div>
-                    <div className={'b-s-hs'}>Head</div>
-                    <div className={'b-s-accuracy'}>Меткость</div>
+                    <div onClick={() => setSortSelect('deaths')} className={'b-s-deaths b-s-select'}>Deaths</div>
+                    <div onClick={() => setSortSelect('kd')} className={'b-s-kd b-s-select'}>K/D</div>
+                    <div onClick={() => setSortSelect('hs')} className={'b-s-hs b-s-select'}>Head</div>
+                    <div onClick={() => setSortSelect('acc')} className={'b-s-accuracy b-s-select'}>Меткость</div>
                     <div onClick={() => setSortSelect('dmg')} className={'b-s-dmg b-s-select'}>Урон</div>
-                    <div className={'b-s-assist'}>Assists</div>
+                    <div onClick={() => setSortSelect('assists')} className={'b-s-assist b-s-select'}>Assists</div>
                 </div>
             </div>
             {usersData.map((item, index) =>
