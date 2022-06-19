@@ -13,7 +13,7 @@ const Navbar = ({online=0, ...props}) => {
     useEffect(() => {
         let lastPosition = window.pageYOffset
         window.onscroll = () => {
-            if (window.pageYOffset > lastPosition) {
+            if (window.pageYOffset > lastPosition && window.pageYOffset > 0) {
                 setShow("header-hide")
             } else {
                 setShow("")
